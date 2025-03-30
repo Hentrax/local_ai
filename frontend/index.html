@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat IA Local (Ollama)</title>
+    <title>IA Locale (Ollama)</title>
     <link rel="stylesheet" href="style.css">
     <!-- Ajout de la bibliothèque marked.js -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -17,17 +17,18 @@
             <button id="new-chat-btn">Nouveau Chat</button>
 
             <div class="model-selector">
-                <label for="model-select">Modèle IA:</label>
-                <select id="model-select">
-                    <!-- Options pour Deepseek basées sur la demande -->
-                    <option value="1.5b">Deepseek 1.5B</option>
-                    <option value="7b">Deepseek 7B</option>
-                    <option value="8b">Deepseek 8B</option>
-                    <option value="14b" selected>Deepseek 14B</option> <!-- Default -->
-                    <option value="32b">Deepseek 32B</option>
-                    <option value="70b">Deepseek 70B</option>
-                    <option value="671b">Deepseek 671B</option>
-                    <!-- Adaptez les 'value' pour correspondre à ce que le backend attend -->
+                <label for="model-base-select">Modèle de base :</label>
+                <select id="model-base-select">
+                    <option value="" disabled selected>Chargement...</option>
+                    <!-- Les noms de base (ex: deepseek-r1) seront chargés ici -->
+                </select>
+            </div>
+            
+            <div class="model-selector">
+                <label for="model-tag-select">Tag / Taille :</label>
+                <select id="model-tag-select" disabled>
+                    <option value="" disabled selected>Choisir modèle d'abord</option>
+                    <!-- Les tags (ex: 14b) seront chargés ici -->
                 </select>
             </div>
 
