@@ -250,25 +250,26 @@ document.addEventListener('DOMContentLoaded', () => {
                  return response.text().then(text => { throw new Error(`Réponse inattendue du serveur: ${text}`) });
              }
          })
+        // Dans la fonction handleFiles, après le fetch('/upload', ...)
         .then(({ ok, status, data }) => {
             if (ok && data.success) {
-                setStatus(`Fichier ${data.filename} uploadé.`);
-                // Informer l'utilisateur dans le chat
-                addMessage('system', `Fichier uploadé : ${data.filename}. Vous pouvez maintenant poser une question à son sujet.`);
-                // NOTE : Le backend ne fait rien avec le contenu pour l'instant.
-                // L'utilisateur doit explicitement demander à l'IA d'analyser le fichier.
+                // Utilise le message renvoyé par le backend
+                setStatus(data.message); // Afficher le nouveau message de succès/info
+                // Informer l'utilisateur dans le chat - utilise aussi le message du backend
+                addMessage('system', data.message); // Affiche "Fichier X uploadé et traité..."
             } else {
-                throw new Error(data.error || `Erreur HTTP ${status}`);
+                // Utilise l'erreur renvoyée par le backend
+                throw new Error(data.error || `Erreur serveur ${status}`);
             }
         })
         .catch(error => {
-            console.error("Erreur d'upload:", error);
-             addMessage('system', `Erreur d'upload : ${error.message}`, 'error');
-             setStatus(`Erreur upload: ${error.message}`, true);
+            console.error("Erreur d'upload ou traitement:", error);
+             addMessage('system', `Erreur upload/traitement : ${error.message}`, 'error');
+             setStatus(`Erreur: ${error.message}`, true);
         })
          .finally(() => {
-             setLoading(false); // Réactive l'input
-             fileInput.value = null; // Réinitialise l'input fichier
+             setLoading(false);
+             fileInput.value = null;
          });
     }
 
