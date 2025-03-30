@@ -1,0 +1,8 @@
+Flask>=2.0
+ollama>=0.1.0
+python-dotenv>=0.19.0
+Werkzeug>=2.0 # Généralement inclus avec Flask
+# Ajoutez si vous voulez l'extraction de texte plus tard:
+# pypdf2
+# python-docx
+# openpyxl

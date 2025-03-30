@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat IA Local (Ollama)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <button id="new-chat-btn">Nouveau Chat</button>
+
+            <div class="model-selector">
+                <label for="model-select">Modèle IA:</label>
+                <select id="model-select">
+                    <!-- Options pour Deepseek basées sur la demande -->
+                    <option value="1.5b">Deepseek 1.5B</option>
+                    <option value="7b">Deepseek 7B</option>
+                    <option value="8b">Deepseek 8B</option>
+                    <option value="r1-14b" selected>Deepseek R1 14B</option> <!-- Default -->
+                    <option value="14b">Deepseek 14B (Autre?)</option>
+                    <option value="32b">Deepseek 32B</option>
+                    <option value="70b">Deepseek 70B</option>
+                    <option value="671b">Deepseek 671B</option>
+                    <!-- Adaptez les 'value' pour correspondre à ce que le backend attend -->
+                </select>
+            </div>
+
+            <div class="history-section">
+                <h3>Historique</h3>
+                <ul id="history-list">
+                    <!-- L'historique sera chargé ici par JS -->
+                    <li>Chargement...</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chat-area">
+            <div id="chat-window">
+                <!-- Les messages apparaîtront ici -->
+                <div class="message assistant">Bonjour ! Comment puis-je vous aider aujourd'hui ?</div>
+            </div>
+
+            <div id="drop-zone" class="drop-zone">
+                Déposez des fichiers ici (PDF, Word, Excel, Txt)
+            </div>
+
+            <div class="input-area">
+                <input type="file" id="file-input" accept=".pdf,.doc,.docx,.xls,.xlsx,.txt" style="display: none;">
+                <button id="upload-btn" title="Joindre un fichier">📎</button>
+                <textarea id="message-input" placeholder="Entrez votre message ici..." rows="1"></textarea>
+                <button id="send-btn">Envoyer</button>
+            </div>
+             <div id="status-bar" class="status-bar">Prêt.</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
