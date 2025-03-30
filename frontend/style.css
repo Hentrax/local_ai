@@ -218,3 +218,77 @@ body {
     background-color: #e9ecef;
     text-align: center;
 }
+/* --- Styles pour le bouton et la zone de pensée --- */
+
+.message.assistant {
+    position: relative; /* Permet de positionner le bouton absolument si besoin */
+}
+
+.toggle-think-button {
+    background-color: #f8f9fa; /* Fond très léger */
+    border: 1px solid #dee2e6; /* Bordure légère */
+    color: #495057; /* Couleur texte discrète */
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8em;
+    margin-top: 8px; /* Espace au-dessus du bouton */
+    display: block; /* Pour qu'il prenne sa propre ligne (ou inline-block si tu préfères) */
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.toggle-think-button:hover {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+}
+
+.thinking-content {
+    display: none; /* Caché par défaut */
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f0f0f0; /* Fond légèrement différent pour la distinguer */
+    border: 1px dashed #ccc; /* Bordure pointillée */
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: #555;
+    white-space: pre-wrap; /* Préserve les sauts de ligne et espaces de la pensée */
+    word-wrap: break-word; /* Coupe les mots longs */
+    max-height: 200px; /* Limite la hauteur pour ne pas envahir */
+    overflow-y: auto; /* Ajoute une barre de scroll si nécessaire */
+}
+
+.thinking-content.visible {
+    display: block; /* Visible quand la classe est ajoutée */
+}
+
+/* Style pour le contenu Markdown généré */
+.message-content p:last-child {
+    margin-bottom: 0; /* Enlève marge du dernier paragraphe pour coller bouton */
+}
+.message-content pre {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 10px 0;
+}
+.message-content code {
+    font-family: monospace;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}
+.message-content pre code {
+    background-color: transparent; /* Pas de double fond pour code dans pre */
+    padding: 0;
+}
+.message-content ul, .message-content ol {
+     padding-left: 25px;
+     margin: 10px 0;
+}
+.message-content blockquote {
+    border-left: 3px solid #ccc;
+    padding-left: 10px;
+    margin-left: 0;
+    color: #666;
+}
