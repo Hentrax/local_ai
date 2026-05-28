@@ -515,26 +515,32 @@
 
     <h3>2. Ollama — Local LLMs Without Friction</h3>
     <p>The smoothest tool for deploying and interacting with language models locally. One command to download and launch any model.</p>
+    <div class="callout">
+      <strong>Why MoE models?</strong> Mixture-of-Experts architectures activate only a fraction of parameters per token — you get near-flagship quality at a fraction of the VRAM cost.
+    </div>
     <ul class="feature-list">
-      <li><strong>Qwen 3 (14B–35B)</strong> — Excellent for writing, reasoning, and code. My main choice.</li>
-      <li><strong>Gemma 3 (12B)</strong> — Performant and lightweight, ideal when VRAM is limited.</li>
-      <li><strong>Llama 3.1 (8B)</strong> — Fast and versatile for everyday tasks.</li>
+      <li><strong>Qwen3.6 MoE</strong> — Outstanding reasoning, coding, and multilingual support. My main choice. Runs on 16 GB VRAM.</li>
+      <li><strong>Gemma4 MoE</strong> — Google's MoE flagship. Excellent instruction-following and low memory footprint.</li>
     </ul>
 
     <h3>3. ComfyUI — Images & Video With Full Control</h3>
     <p>The reference node-based interface for image and video generation. The learning curve is real, but the level of control is unmatched.</p>
+    <p><strong>Images:</strong></p>
     <ul class="feature-list">
-      <li><strong>SDXL + fine-tuned LoRAs</strong> — Unbeatable ecosystem. Thousands of styles on CivitAI.</li>
-      <li><strong>Z Image Turbo</strong> — Ultra-fast generation (seconds) without sacrificing quality.</li>
-      <li><strong>Wan 2.2</strong> — My go-to for image animation. Remarkable motion quality.</li>
-      <li><strong>LTX Video 2.3</strong> — One of the few open-source models with native audio support.</li>
+      <li><strong>Flux</strong> — Current state of the art for open-source image generation. Best prompt adherence and photorealism available locally.</li>
+      <li><strong>Z Image Turbo</strong> — Ultra-fast generation (seconds) without sacrificing quality. Ideal for rapid iteration.</li>
+      <li><strong>SDXL + fine-tuned LoRAs</strong> — Unbeatable ecosystem depth. Thousands of styles and characters available on CivitAI.</li>
+    </ul>
+    <p><strong>Video:</strong></p>
+    <ul class="feature-list">
+      <li><strong>Wan 2.2</strong> — My go-to for image animation. Remarkable motion quality and temporal consistency.</li>
     </ul>
 
     <h3>4. llama.cpp — Going Further</h3>
     <p>When Ollama isn't enough, llama.cpp gives granular control over generation parameters, threading, and GPU/CPU usage. Essential for integration into automated workflows.</p>
 
-    <h3>5. Stable Audio / MusicGen — Local Music</h3>
-    <p>Generate ambient music from a text prompt. The local audio AI ecosystem is developing fast — fully usable today.</p>
+    <h3>5. Stable Audio — Local Music Generation</h3>
+    <p>Generate ambient music directly from a text prompt, fully locally. Stable Audio 3 produces high-quality stereo audio up to several minutes long — ideal for video backgrounds and reels.</p>
   </section>
 
 
@@ -590,7 +596,7 @@
 
     <p>This guide is free and will stay free. If it saved you hours of research:</p>
 
-    <a href="VOTRE_LIEN_KOFI" class="link-card" target="_blank" rel="noopener">
+    <a href="https://ko-fi.com/localaisetup" class="link-card" target="_blank" rel="noopener">
       <div class="card-icon icon-amber">☕</div>
       <div class="card-text">
         <div class="card-title">Buy Me a Coffee</div>
