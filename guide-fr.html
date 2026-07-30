@@ -411,13 +411,21 @@
 
     <p>Ce que j'ai automatisé dans mon workflow :</p>
     <ul class="feature-list">
-      <li><strong>Génération de contenu</strong> — LLM → prompt image/vidéo → génération ComfyUI</li>
-      <li><strong>Post-production</strong> — audio TTS, musique de fond, sous-titres karaoké</li>
+      <li><strong>Génération de contenu</strong> — un seul appel LLM renvoie tous les prompts du post (légende, image, mouvement, musique) → génération ComfyUI</li>
+      <li><strong>Post-production</strong> — voix TTS, musique de fond, sous-titres karaoké, reels multi-plans (une image par paragraphe, avec transitions)</li>
       <li><strong>Publication</strong> — scheduling, multi-comptes, formats adaptés par plateforme</li>
       <li><strong>Veille</strong> — scraping de sources → résumé LLM → post formaté</li>
     </ul>
 
     <p>Le tout tourne sans intervention humaine, 24h/24.</p>
+
+    <div class="callout">
+      <strong>Ce qui rend l'ensemble fiable : la sortie structurée.</strong> On donne au modèle local un schéma JSON, et llama.cpp (ou Ollama) le compile en une grammaire que l'échantillonneur est <em>obligé</em> de suivre. Le modèle ne peut alors physiquement pas répondre en prose, entourer son JSON de markdown, inventer un champ ou en oublier un. C'est toute la différence entre une démo qu'on surveille et un pipeline qu'on laisse tourner — et c'est gratuit, en local.
+    </div>
+
+    <div class="callout">
+      <strong>Petit détail, vrai gain de rétention :</strong> Instagram relance un reel en boucle — le saut vers la première image est donc le moment que votre spectateur voit le plus souvent. Un court fondu de la fin sur le début, ou un ping-pong (le clip suivi de son miroir), le supprime. Une passe FFmpeg, aucune régénération.
+    </div>
 
     <div class="callout" style="border-left-color:var(--green)">
       <strong>En production depuis 2025 :</strong> 6 comptes actifs sur des niches différentes — plus de 3 000 publications générées automatiquement, entre 1 500 et 2 300+ abonnés chacun. Zéro publication manuelle.
