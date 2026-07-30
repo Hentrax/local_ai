@@ -380,12 +380,15 @@
       <li><strong>Qwen3.6-35B-A3B (MoE + MTP)</strong> — Excellent en raisonnement, code et multilinguisme. Mon choix principal. Tourne sur 16 Go VRAM.</li>
       <li><strong>Gemma 4 26B-A4B (MoE)</strong> — Le MoE flagship de Google. Suivi d'instructions excellent et faible empreinte mémoire.</li>
     </ul>
+    <div class="callout">
+      <strong>Il vous faut un modèle plus petit que vous ne le croyez.</strong> Mon compte le plus exigeant — scraper un article, puis écrire une légende, plusieurs textes de segments, un prompt image par segment, un prompt de mouvement et un prompt musique — tourne sur un <strong>12B en Q5</strong>, pas sur le 35B. Dès que la forme de la sortie est correctement contrainte, le nombre de paramètres cesse d'être le facteur limitant. Bonne nouvelle pour votre budget VRAM.
+    </div>
 
     <h3>3. ComfyUI — Images & Vidéo avec contrôle total</h3>
     <p>L'interface nodale de référence pour la génération d'images et de vidéos. La courbe d'apprentissage est réelle, mais le niveau de contrôle est sans équivalent.</p>
     <p><strong>Images :</strong></p>
     <ul class="feature-list">
-      <li><strong>Krea 2 Turbo</strong> — Génération rapide et stylisée avec une riche bibliothèque de styles artistiques intégrés. Une esthétique distinctive dès l'installation, sans chercher de LoRA.</li>
+      <li><strong>Krea 2 Turbo</strong> — Génération rapide et stylisée avec une riche bibliothèque de styles artistiques intégrés. Une esthétique distinctive dès l'installation, sans chercher de LoRA. Mon choix par défaut actuellement.</li>
       <li><strong>FLUX.2 Klein 9B</strong> — L'état de l'art actuel en génération d'images open source. Meilleure fidélité aux prompts et photoréalisme disponibles en local.</li>
       <li><strong>Z Image Turbo</strong> — Génération ultra-rapide (quelques secondes) sans sacrifier la qualité. Idéal pour itérer vite.</li>
     </ul>
@@ -394,6 +397,9 @@
       <li><strong>LTX-2</strong> — Ma nouvelle référence pour l'animation. Des clips jusqu'à 10 secondes <strong>avec une piste audio synchronisée générée dans la même passe</strong> — le mouvement et le son sortent ensemble, sans étape d'assemblage séparée.</li>
       <li><strong>Wan 2.2</strong> — Toujours excellent pour le mouvement pur et silencieux : qualité de mouvement remarquable et cohérence temporelle à ~5 secondes.</li>
     </ul>
+    <div class="callout">
+      <strong>Comment je les utilise vraiment :</strong> LTX-2 en premier, systématiquement. Une prise sur deux environ est assez bonne pour être gardée — je conserve les 10 secondes et son audio natif, et j'ajoute la musique de fond en dessous. Quand la prise ne prend pas, je régénère avec Wan 2.2, qui lui réussit presque à tous les coups ; ce clip est court et muet, alors je le passe en boucle ping-pong et la musique générée devient la seule bande-son.
+    </div>
 
     <h3>4. llama.cpp — Pour aller plus loin</h3>
     <p>Quand Ollama ne suffit plus, llama.cpp offre un contrôle granulaire sur les paramètres de génération, le threading et l'utilisation GPU/CPU. Indispensable pour l'intégration dans des workflows automatisés.</p>
