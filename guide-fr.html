@@ -241,7 +241,7 @@
   </div>
 
   <header class="header">
-    <div class="badge">Guide Gratuit · Mis à jour juillet 2026</div>
+    <div class="badge">Guide Gratuit · Mis à jour août 2026</div>
     <h1>IA en Local</h1>
     <p>Tout ce que j'utilise pour générer images, vidéos et textes sur ma propre machine — zéro Cloud, zéro abonnement, zéro censure.</p>
   </header>
@@ -394,11 +394,12 @@
     </ul>
     <p><strong>Vidéo :</strong></p>
     <ul class="feature-list">
-      <li><strong>LTX-2</strong> — Ma nouvelle référence pour l'animation. Des clips jusqu'à 10 secondes <strong>avec une piste audio synchronisée générée dans la même passe</strong> — le mouvement et le son sortent ensemble, sans étape d'assemblage séparée.</li>
+      <li><strong>MiniMax H3</strong> — Ma référence pour l'animation, et le plus gros bond que j'aie vu dans cette catégorie. <strong>Des clips de 15 secondes avec une piste audio synchronisée générée dans la même passe</strong> — le mouvement et le son sortent ensemble, sans étape d'assemblage séparée — et les déformations et morphings de visage qui obligeaient à régénérer ont largement disparu. Quinze secondes, c'est aussi le seuil où un seul clip porte un post entier.</li>
       <li><strong>Wan 2.2</strong> — Toujours excellent pour le mouvement pur et silencieux : qualité de mouvement remarquable et cohérence temporelle, dans les 5 secondes sur lesquelles il a été entraîné. Au-delà, il génère deux fenêtres qui ne se raccordent pas.</li>
+      <li><strong>LTX-2</strong> — Ce que j'utilisais avant MiniMax H3 : 10 secondes, avec l'audio dans la même passe lui aussi. Reste un intermédiaire raisonnable, mais je devais le régénérer bien plus souvent.</li>
     </ul>
     <div class="callout">
-      <strong>Comment je les utilise vraiment :</strong> LTX-2 en premier, systématiquement. Une prise sur deux environ est assez bonne pour être gardée — je conserve les 10 secondes et son audio natif, et j'ajoute la musique de fond en dessous. Quand la prise ne prend pas, je régénère avec Wan 2.2, qui lui réussit presque à tous les coups ; ce clip est court et muet, alors je le passe en boucle ping-pong et la musique générée devient la seule bande-son.
+      <strong>Comment je les utilise vraiment :</strong> MiniMax H3 par défaut — je conserve les 15 secondes et son audio natif, et j'ajoute la musique de fond en dessous. Le prix à payer, c'est le temps : environ 19 minutes de GPU par clip sur ma 4070, donc ces travaux tournent la nuit. Quand il me faut du volume plutôt que du soin, je bascule sur Wan 2.2 (~3 minutes par clip) ; ce clip est court et muet, alors je le passe en boucle ping-pong et la musique générée devient la seule bande-son.
     </div>
 
     <h3>4. llama.cpp — Pour aller plus loin</h3>
@@ -419,7 +420,7 @@
     <ul class="feature-list">
       <li><strong>Génération de contenu</strong> — un seul appel LLM renvoie tous les prompts du post (légende, image, mouvement, musique) → génération ComfyUI</li>
       <li><strong>Post-production</strong> — voix TTS, musique de fond, sous-titres karaoké, reels multi-plans (une image par paragraphe, avec transitions)</li>
-      <li><strong>Publication</strong> — scheduling, multi-comptes, formats adaptés par plateforme</li>
+      <li><strong>Publication</strong> — scheduling, multi-comptes, formats adaptés par plateforme, publication sur Instagram, Facebook et Threads depuis le même payload</li>
       <li><strong>Veille</strong> — scraping de sources → résumé LLM → post formaté</li>
     </ul>
 
@@ -495,7 +496,7 @@
 
   <footer class="footer">
     <p>Liens hardware = affiliés Amazon · Le prix est identique pour vous<br>
-    Aussi disponible en <a href="guide-en.html">anglais</a> · <a href="index.html">← Retour au hub</a> · Mis à jour juillet 2026</p>
+    Aussi disponible en <a href="guide-en.html">anglais</a> · <a href="index.html">← Retour au hub</a> · Mis à jour août 2026</p>
   </footer>
 
 </div>
