@@ -241,7 +241,7 @@
   </div>
 
   <header class="header">
-    <div class="badge">Guide Gratuit · Mis à jour août 2026</div>
+    <div class="badge">Guide Gratuit · Mis à jour septembre 2026</div>
     <h1>IA en Local</h1>
     <p>Tout ce que j'utilise pour générer images, vidéos et textes sur ma propre machine — zéro Cloud, zéro abonnement, zéro censure.</p>
   </header>
@@ -399,7 +399,7 @@
       <li><strong>LTX-2</strong> — Ce que j'utilisais avant MiniMax H3 : 10 secondes, avec l'audio dans la même passe lui aussi. Reste un intermédiaire raisonnable, mais je devais le régénérer bien plus souvent.</li>
     </ul>
     <div class="callout">
-      <strong>Comment je les utilise vraiment :</strong> MiniMax H3 par défaut — je conserve les 15 secondes et son audio natif, et j'ajoute la musique de fond en dessous. Avec la variante Turbo 4 pas, c'est environ 8 minutes de GPU par clip sur ma 4070, donc ces travaux tournent maintenant de jour ; la passe non-Turbo (~19 minutes) reste pour la rare génération qui demande toute la qualité. Quand il me faut du volume plutôt que du soin, je bascule sur Wan 2.2 (~3 minutes par clip) ; ce clip est court et muet, alors je le passe en boucle ping-pong et la musique générée devient la seule bande-son.
+      <strong>Comment je les utilise vraiment :</strong> MiniMax H3 par défaut — je conserve les 15 secondes et son audio natif, et j'ajoute la musique de fond en dessous. Avec la variante Turbo 8 pas, c'est environ 11 minutes de GPU par clip sur ma 4070 — un classement public à l'aveugle a placé le réglage 4 pas, plus rapide, sous le modèle non accéléré, alors j'ai échangé deux minutes contre de la qualité — et ces travaux tournent de jour ; la passe non-Turbo (~19 minutes) reste pour la rare génération qui demande toute la qualité. Quand il me faut du volume plutôt que du soin, je bascule sur Wan 2.2 (~3 minutes par clip) ; ce clip est court et muet, alors je le passe en boucle ping-pong et la musique générée devient la seule bande-son.
     </div>
 
     <h3>4. llama.cpp — Pour aller plus loin</h3>
@@ -423,7 +423,9 @@
       <li><strong>Publication</strong> — scheduling, multi-comptes, formats adaptés par plateforme, publication sur Instagram, Facebook et Threads depuis le même payload</li>
       <li><strong>Veille</strong> — scraping de sources → résumé LLM → post formaté</li>
       <li><strong>Histoire feuilleton</strong> — un compte fictif piloté comme une série : chaque post est le chapitre suivant, la mémoire du monde est conservée entre les épisodes (arc, scène et mise à jour du lore, canon décidé à la mise en file)</li>
+      <li><strong>Story Studio</strong> — le versant vidéo du feuilleton : chaque décor et chaque objet reçoit une image de référence, validée une fois puis réutilisée par toutes les scènes, si bien que le même bar et le même couloir reviennent d'un épisode à l'autre ; chaque scène devient jusqu'à trois prises de 15 secondes avec dialogues</li>
       <li><strong>Photo → post</strong> — téléversez une photo et le pipeline rédige la légende, les hashtags et une vidéo animée autour d'elle, avec un modèle de vision qui voit réellement l'image</li>
+      <li><strong>Retour de performance</strong> — les vues de chaque post sont rattachées à la version exacte du template de prompt qui l'a écrit, pour que les templates progressent d'après ce qui a vraiment marché</li>
     </ul>
 
     <p>Le tout tourne sans intervention humaine, 24h/24.</p>
@@ -489,7 +491,7 @@
       <div class="card-icon icon-purple">🛠️</div>
       <div class="card-text">
         <div class="card-title">Guide Pipeline Complet</div>
-        <div class="card-desc">Architecture, modèles, entraînement LoRA de personnage, histoire feuilleton, photo → post, publication automatisée — le blueprint complet en 45 pages · $49</div>
+        <div class="card-desc">Architecture, modèles, entraînement LoRA de personnage, histoire feuilleton et Story Studio, photo → post, publication automatisée — le blueprint complet en 50 pages · $49</div>
       </div>
       <div class="card-arrow">↗</div>
     </a>
@@ -498,7 +500,7 @@
 
   <footer class="footer">
     <p>Liens hardware = affiliés Amazon · Le prix est identique pour vous<br>
-    Aussi disponible en <a href="guide-en.html">anglais</a> · <a href="index.html">← Retour au hub</a> · Mis à jour août 2026</p>
+    Aussi disponible en <a href="guide-en.html">anglais</a> · <a href="index.html">← Retour au hub</a> · Mis à jour septembre 2026</p>
   </footer>
 
 </div>
