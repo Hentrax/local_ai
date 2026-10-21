@@ -241,7 +241,7 @@
   </div>
 
   <header class="header">
-    <div class="badge">Guide Gratuit · Mis à jour septembre 2026</div>
+    <div class="badge">Guide Gratuit · Mis à jour octobre 2026</div>
     <h1>IA en Local</h1>
     <p>Tout ce que j'utilise pour générer images, vidéos et textes sur ma propre machine — zéro Cloud, zéro abonnement, zéro censure.</p>
   </header>
@@ -401,6 +401,9 @@
     <div class="callout">
       <strong>Comment je les utilise vraiment :</strong> MiniMax H3 par défaut — je conserve les 15 secondes et son audio natif, et j'ajoute la musique de fond en dessous. Avec la variante Turbo 8 pas, c'est environ 11 minutes de GPU par clip sur ma 4070 — un classement public à l'aveugle a placé le réglage 4 pas, plus rapide, sous le modèle non accéléré, alors j'ai échangé deux minutes contre de la qualité — et ces travaux tournent de jour ; la passe non-Turbo (~19 minutes) reste pour la rare génération qui demande toute la qualité. Quand il me faut du volume plutôt que du soin, je bascule sur Wan 2.2 (~3 minutes par clip) ; ce clip est court et muet, alors je le passe en boucle ping-pong et la musique générée devient la seule bande-son.
     </div>
+    <div class="callout">
+      <strong>Une vidéo qui suit un trajet :</strong> un clip peut partir d'une seule image, d'une image de début et d'une image de fin, ou de l'image exacte sur laquelle le clip précédent s'est arrêté. Cette dernière option enchaîne plusieurs clips en un seul mouvement continu, sans raccord visible — même stack, un seul choix de structure.
+    </div>
 
     <h3>4. llama.cpp — Pour aller plus loin</h3>
     <p>Quand Ollama ne suffit plus, llama.cpp offre un contrôle granulaire sur les paramètres de génération, le threading et l'utilisation GPU/CPU. Indispensable pour l'intégration dans des workflows automatisés.</p>
@@ -420,9 +423,9 @@
     <ul class="feature-list">
       <li><strong>Génération de contenu</strong> — un seul appel LLM renvoie tous les prompts du post (légende, image, mouvement, musique) → génération ComfyUI</li>
       <li><strong>Post-production</strong> — voix TTS, musique de fond, sous-titres karaoké, reels multi-plans (une image par paragraphe, avec transitions)</li>
-      <li><strong>Publication</strong> — scheduling, multi-comptes, formats adaptés par plateforme, publication sur Instagram, Facebook et Threads depuis le même payload</li>
+      <li><strong>Publication</strong> — scheduling, multi-comptes, formats adaptés par plateforme, publication sur Instagram, Facebook et Threads depuis le même payload — posts, carousels, reels et Stories, y compris une publication en Story seule</li>
       <li><strong>Veille</strong> — scraping de sources → résumé LLM → post formaté</li>
-      <li><strong>Histoire feuilleton</strong> — un compte fictif piloté comme une série : chaque post est le chapitre suivant, la mémoire du monde est conservée entre les épisodes (arc, scène et mise à jour du lore, canon décidé à la mise en file)</li>
+      <li><strong>Histoire feuilleton</strong> — un compte fictif piloté comme une série : chaque post est le chapitre suivant, la mémoire du monde est conservée entre les épisodes (arc, scène et mise à jour du lore, canon décidé à la mise en file), et les thèmes du public tirés des commentaires orientent la scène suivante</li>
       <li><strong>Story Studio</strong> — le versant vidéo du feuilleton : chaque décor et chaque objet reçoit une image de référence, validée une fois puis réutilisée par toutes les scènes, si bien que le même bar et le même couloir reviennent d'un épisode à l'autre ; chaque scène devient jusqu'à trois prises de 15 secondes avec dialogues</li>
       <li><strong>Photo → post</strong> — téléversez une photo et le pipeline rédige la légende, les hashtags et une vidéo animée autour d'elle, avec un modèle de vision qui voit réellement l'image</li>
       <li><strong>Retour de performance</strong> — les vues de chaque post sont rattachées à la version exacte du template de prompt qui l'a écrit, pour que les templates progressent d'après ce qui a vraiment marché</li>
@@ -439,7 +442,7 @@
     </div>
 
     <div class="callout" style="border-left-color:var(--green)">
-      <strong>En production depuis 2025 :</strong> 6 comptes actifs sur des niches différentes — plus de 3 000 publications générées automatiquement, entre 1 500 et 2 300+ abonnés chacun. Zéro publication manuelle.
+      <strong>En production depuis 2025 :</strong> 8 comptes actifs sur des niches différentes — plus de 10 000 publications générées automatiquement, entre 1 500 et 2 500+ abonnés chacun. Zéro publication manuelle.
     </div>
 
     <div class="callout">
@@ -491,7 +494,7 @@
       <div class="card-icon icon-purple">🛠️</div>
       <div class="card-text">
         <div class="card-title">Guide Pipeline Complet</div>
-        <div class="card-desc">Architecture, modèles, entraînement LoRA de personnage, histoire feuilleton et Story Studio, photo → post, publication automatisée — le blueprint complet en 50 pages · $49</div>
+        <div class="card-desc">Architecture, modèles, entraînement LoRA de personnage, histoire feuilleton et Story Studio, photo → post, publication automatisée — le blueprint complet en 52 pages · $49</div>
       </div>
       <div class="card-arrow">↗</div>
     </a>
@@ -500,7 +503,7 @@
 
   <footer class="footer">
     <p>Liens hardware = affiliés Amazon · Le prix est identique pour vous<br>
-    Aussi disponible en <a href="guide-en.html">anglais</a> · <a href="index.html">← Retour au hub</a> · Mis à jour septembre 2026</p>
+    Aussi disponible en <a href="guide-en.html">anglais</a> · <a href="index.html">← Retour au hub</a> · Mis à jour octobre 2026</p>
   </footer>
 
 </div>
