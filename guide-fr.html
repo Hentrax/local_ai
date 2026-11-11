@@ -245,7 +245,7 @@
   </div>
 
   <header class="header">
-    <div class="badge">Guide Gratuit · Mis à jour octobre 2026</div>
+    <div class="badge">Guide Gratuit · Mis à jour novembre 2026</div>
     <h1>IA en Local</h1>
     <p>Tout ce que j'utilise pour générer images, vidéos et textes sur ma propre machine — zéro Cloud, zéro abonnement, zéro censure.</p>
   </header>
@@ -398,7 +398,7 @@
       <li><strong>LTX-2</strong> — Ce que j'utilisais avant MiniMax H3 : 10 secondes, avec l'audio dans la même passe lui aussi. Reste un intermédiaire raisonnable, mais je devais le régénérer bien plus souvent.</li>
     </ul>
     <div class="callout">
-      <strong>Comment je les utilise vraiment :</strong> MiniMax H3 par défaut — je conserve les 15 secondes et son audio natif, et j'ajoute la musique de fond en dessous. Avec la variante Turbo 8 pas, c'est environ 11 minutes de GPU par clip sur ma 4070 — un classement public à l'aveugle a placé le réglage 4 pas, plus rapide, sous le modèle non accéléré, alors j'ai échangé deux minutes contre de la qualité — et ces travaux tournent de jour ; la passe non-Turbo (~19 minutes) reste pour la rare génération qui demande toute la qualité. Quand il me faut du volume plutôt que du soin, je bascule sur Wan 2.2 (~3 minutes par clip) ; ce clip est court et muet, alors je le passe en boucle ping-pong et la musique générée devient la seule bande-son.
+      <strong>Comment je les utilise vraiment :</strong> MiniMax H3 par défaut — je conserve les 15 secondes et son audio natif, et j'ajoute la musique de fond en dessous. Avec Pika H3 Flex — une distillation en six pas publiée comme adaptateur —, c'est environ 9 minutes de GPU par clip sur ma 4070, et ces travaux tournent de jour ; la passe non accélérée (~19 minutes) reste pour la rare génération qui en a besoin. Quand il me faut du volume plutôt que du soin, je bascule sur Wan 2.2 (~3 minutes par clip) ; ce clip est court et muet, alors je le passe en boucle ping-pong et la musique générée devient la seule bande-son.
     </div>
     <div class="callout">
       <strong>Une vidéo qui suit un trajet :</strong> un clip peut partir d'une seule image, d'une image de début et d'une image de fin, ou de l'image exacte sur laquelle le clip précédent s'est arrêté. Cette dernière option enchaîne plusieurs clips en un seul mouvement continu, sans raccord visible — même stack, un seul choix de structure.
@@ -423,10 +423,9 @@
       <li><strong>Génération de contenu</strong> — un seul appel LLM renvoie tous les prompts du post (légende, image, mouvement, musique) → génération ComfyUI</li>
       <li><strong>Post-production</strong> — voix TTS, musique de fond, sous-titres karaoké, reels multi-plans (une image par paragraphe, avec transitions)</li>
       <li><strong>Publication</strong> — scheduling, multi-comptes, formats adaptés par plateforme, publication sur Instagram, Facebook et Threads depuis le même payload — posts, carousels, reels et Stories, y compris une publication en Story seule</li>
-      <li><strong>Veille</strong> — scraping de sources → résumé LLM → post formaté</li>
+      <li><strong>Veille</strong> — sources collectées, articles d'un même événement regroupés en un sujet, une publication par événement, des suites quand l'actualité bouge</li>
       <li><strong>Histoire feuilleton</strong> — un compte fictif piloté comme une série : chaque post est le chapitre suivant, la mémoire du monde est conservée entre les épisodes (arc, scène et mise à jour du lore, canon décidé à la mise en file), et les thèmes du public tirés des commentaires orientent la scène suivante</li>
-      <li><strong>Story Studio</strong> — le versant vidéo du feuilleton : chaque décor et chaque objet reçoit une image de référence, validée une fois puis réutilisée par toutes les scènes, si bien que le même bar et le même couloir reviennent d'un épisode à l'autre ; chaque scène devient jusqu'à trois prises de 15 secondes avec dialogues</li>
-      <li><strong>Photo → post</strong> — téléversez une photo et le pipeline rédige la légende, les hashtags et une vidéo animée autour d'elle, avec un modèle de vision qui voit réellement l'image</li>
+      <li><strong>Story Studio</strong> — le versant vidéo du feuilleton : chaque décor et chaque objet reçoit une image de référence, validée une fois puis réutilisée par toutes les scènes, si bien que le même bar et le même couloir reviennent d'un épisode à l'autre ; chaque scène devient une vidéo de 15 secondes au style amateur par défaut, jusqu'à quatre quand le moment l'exige</li>
       <li><strong>Retour de performance</strong> — les vues de chaque post sont rattachées à la version exacte du template de prompt qui l'a écrit, pour que les templates progressent d'après ce qui a vraiment marché</li>
     </ul>
 
@@ -489,11 +488,50 @@
       <div class="card-arrow">↗</div>
     </a>
 
+    <div class="section-label" style="margin-top:1.5rem">Aller plus loin — guides payants</div>
+    <p style="font-size:.85rem;opacity:.75;margin:.25rem 0 .75rem">Chaque guide est livré en HTML, en PDF et en édition Markdown à donner directement à votre agent de code (en anglais).</p>
+
     <a href="https://localaisetup.gumroad.com/l/local-ai-pipeline" class="link-card" target="_blank" rel="noopener">
       <div class="card-icon icon-purple">🛠️</div>
       <div class="card-text">
-        <div class="card-title">Guide Pipeline Complet</div>
-        <div class="card-desc">Architecture, modèles, entraînement LoRA de personnage, histoire feuilleton et Story Studio, photo → post, publication automatisée — le blueprint complet en 52 pages · $49</div>
+        <div class="card-title">Core Guide · 39 $</div>
+        <div class="card-desc">Le moteur : modèles locaux sur un GPU ordinaire, la file de jobs, la publication, le matériel</div>
+      </div>
+      <div class="card-arrow">↗</div>
+    </a>
+
+    <a href="https://localaisetup.gumroad.com/l/local-ai-news-playbook" class="link-card" target="_blank" rel="noopener">
+      <div class="card-icon icon-amber">📰</div>
+      <div class="card-text">
+        <div class="card-title">News Playbook · 79 $</div>
+        <div class="card-desc">Une publication par événement, des suites quand l'actualité bouge, des priorités, un tri automatique</div>
+      </div>
+      <div class="card-arrow">↗</div>
+    </a>
+
+    <a href="https://localaisetup.gumroad.com/l/local-ai-story-playbook" class="link-card" target="_blank" rel="noopener">
+      <div class="card-icon icon-purple">🎭</div>
+      <div class="card-text">
+        <div class="card-title">Story Playbook · 49 $</div>
+        <div class="card-desc">Un personnage IA avec un monde, une mémoire, des arcs et un visage qui ne change pas</div>
+      </div>
+      <div class="card-arrow">↗</div>
+    </a>
+
+    <a href="https://localaisetup.gumroad.com/l/local-ai-reach-playbook" class="link-card" target="_blank" rel="noopener">
+      <div class="card-icon icon-amber">📈</div>
+      <div class="card-text">
+        <div class="card-title">Reach Playbook · 19 $</div>
+        <div class="card-desc">Ce qui est vraiment vu, les règles des templates de prompt, et la boucle de retour derrière ~60 000 vues par mois</div>
+      </div>
+      <div class="card-arrow">↗</div>
+    </a>
+
+    <a href="https://localaisetup.gumroad.com/l/local-ai-complete-bundle" class="link-card" target="_blank" rel="noopener">
+      <div class="card-icon icon-purple">📦</div>
+      <div class="card-text">
+        <div class="card-title">Complete Bundle · 129 $</div>
+        <div class="card-desc">Les quatre guides, environ 30 % moins cher</div>
       </div>
       <div class="card-arrow">↗</div>
     </a>
@@ -502,7 +540,7 @@
 
   <footer class="footer">
     <p>Liens hardware = affiliés Amazon · Le prix est identique pour vous<br>
-    Aussi disponible en <a href="guide-en.html">anglais</a> · <a href="index.html">← Retour au hub</a> · Mis à jour octobre 2026</p>
+    Aussi disponible en <a href="guide-en.html">anglais</a> · <a href="index.html">← Retour au hub</a> · Mis à jour novembre 2026</p>
   </footer>
 
 </div>
