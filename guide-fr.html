@@ -279,15 +279,15 @@
           <tr><th>Solution locale</th><th>Coût unique</th><th>Sur 3 ans</th></tr>
         </thead>
         <tbody>
-          <tr><td>RTX 5060 Ti 16 Go</td><td>~500 €</td><td>500 €</td></tr>
+          <tr><td>RTX 5060 Ti 16 Go</td><td>~800 €</td><td>800 €</td></tr>
           <tr><td>Électricité (~15 €/mois)</td><td>15 €/mois</td><td>~540 €</td></tr>
-          <tr class="highlight-row"><td><strong>Total</strong></td><td></td><td><strong>~1 040 €</strong></td></tr>
+          <tr class="highlight-row"><td><strong>Total</strong></td><td></td><td><strong>~1 340 €</strong></td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="savings">
-      <div class="amount">~4 100 €</div>
+      <div class="amount">~3 800 €</div>
       <div class="label">d'économies sur 3 ans — ensuite chaque génération vous coûte exactement zéro</div>
     </div>
 
@@ -327,7 +327,7 @@
       </a>
     </div>
 
-    <p style="font-size:.82rem; color:var(--muted); margin-top:.25rem;">Liens Amazon affiliés — le prix est identique pour vous. La RTX 5090 n'est plus vendue directement par NVIDIA ; son prix réel a atteint 3,7 à 4,3 fois le MSRP ; c'est une carte halo, pas un achat valeur.</p>
+    <p style="font-size:.82rem; color:var(--muted); margin-top:.25rem;">Liens Amazon affiliés — le prix est identique pour vous. La RTX 5060 Ti se vend environ 770 à 850 $ neuve en novembre 2026 (429 $ à sa sortie) — toujours la carte 16 Go neuve la moins chère. La RTX 5090 n'est plus vendue directement par NVIDIA ; son prix réel a atteint 3,7 à 4,3 fois le MSRP ; c'est une carte halo, pas un achat valeur.</p>
 
     <h3>RAM</h3>
     <div class="hw-grid">
@@ -376,11 +376,12 @@
       <strong>Pourquoi les modèles MoE ?</strong> Les architectures Mixture-of-Experts n'activent qu'une fraction des paramètres par token — qualité proche du flagship à une fraction du coût VRAM.
     </div>
     <ul class="feature-list">
-      <li><strong>Qwen3.6-35B-A3B (MoE + MTP)</strong> — Excellent en raisonnement, code et multilinguisme. Mon choix principal. Tourne sur 16 Go VRAM.</li>
+      <li><strong>Gemma 4 12B (QAT)</strong> — Le 12B de Google dans une version entraînée pour supporter la quantification 4 bits. C'est lui qui fait tourner tous mes comptes aujourd'hui : il tient sur une carte de 12 Go avec un long contexte.</li>
+      <li><strong>Qwen3.6-35B-A3B (MoE + MTP)</strong> — Excellent en raisonnement, code et multilinguisme, quand le contexte reste assez court pour que tout le modèle tienne en VRAM. Tourne sur 16 Go.</li>
       <li><strong>Gemma 4 26B-A4B (MoE)</strong> — Le MoE flagship de Google. Suivi d'instructions excellent et faible empreinte mémoire.</li>
     </ul>
     <div class="callout">
-      <strong>Il vous faut un modèle plus petit que vous ne le croyez.</strong> Mon compte le plus exigeant — scraper un article, puis écrire une légende, plusieurs textes de segments, un prompt image par segment, un prompt de mouvement et un prompt musique — tourne sur un <strong>12B en Q5</strong>, pas sur le 35B. Dès que la forme de la sortie est correctement contrainte, le nombre de paramètres cesse d'être le facteur limitant. Bonne nouvelle pour votre budget VRAM.
+      <strong>Il vous faut un modèle plus petit que vous ne le croyez.</strong> Mon compte le plus exigeant — scraper un article, puis écrire une légende, plusieurs textes de segments, un prompt image par segment, un prompt de mouvement et un prompt musique — tourne sur un <strong>12B en 4 bits</strong>, pas sur le 35B. Dès que la forme de la sortie est correctement contrainte, le nombre de paramètres cesse d'être le facteur limitant. Bonne nouvelle pour votre budget VRAM.
     </div>
 
     <h3>3. ComfyUI — Images & Vidéo avec contrôle total</h3>

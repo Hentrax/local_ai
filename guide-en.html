@@ -429,15 +429,15 @@
           <tr><th>Local Solution</th><th>One-Time</th><th>3-Year Total</th></tr>
         </thead>
         <tbody>
-          <tr><td>RTX 5060 Ti 16GB</td><td>~$500</td><td>$500</td></tr>
+          <tr><td>RTX 5060 Ti 16GB</td><td>~$800</td><td>$800</td></tr>
           <tr><td>Electricity (~$15/mo)</td><td>$15/mo</td><td>~$540</td></tr>
-          <tr class="highlight-row"><td><strong>Total</strong></td><td></td><td><strong>~$1,040</strong></td></tr>
+          <tr class="highlight-row"><td><strong>Total</strong></td><td></td><td><strong>~$1,340</strong></td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="savings">
-      <div class="amount">~$4,100+</div>
+      <div class="amount">~$3,800+</div>
       <div class="label">saved over 3 years — after that, every generation costs exactly zero</div>
     </div>
 
@@ -477,7 +477,7 @@
       </a>
     </div>
 
-    <p style="font-size:.82rem; color:var(--muted); margin-top:.25rem;">All links are Amazon affiliate — price is identical for you. The RTX 5090 is no longer sold directly by NVIDIA; street prices have been 3.7–4.3× MSRP, so treat it as a halo card, not a value buy.</p>
+    <p style="font-size:.82rem; color:var(--muted); margin-top:.25rem;">All links are Amazon affiliate — price is identical for you. The RTX 5060 Ti sells for about $770–850 new in November 2026 (it launched at $429) — still the cheapest new 16 GB card. The RTX 5090 is no longer sold directly by NVIDIA; street prices have been 3.7–4.3× MSRP, so treat it as a halo card, not a value buy.</p>
 
     <h3>RAM</h3>
     <div class="hw-grid">
@@ -526,11 +526,12 @@
       <strong>Why MoE models?</strong> Mixture-of-Experts architectures activate only a fraction of parameters per token — you get near-flagship quality at a fraction of the VRAM cost.
     </div>
     <ul class="feature-list">
-      <li><strong>Qwen3.6-35B-A3B (MoE + MTP)</strong> — Outstanding reasoning, coding, and multilingual support. My main choice. Runs on 16 GB VRAM.</li>
+      <li><strong>Gemma 4 12B (QAT)</strong> — Google's 12B in a build trained to survive 4-bit quantization. What every one of my accounts runs on today: it fits a 12 GB card with a long context.</li>
+      <li><strong>Qwen3.6-35B-A3B (MoE + MTP)</strong> — Outstanding reasoning, coding, and multilingual support, when the context stays short enough for the whole model to fit in VRAM. Runs on 16 GB.</li>
       <li><strong>Gemma 4 26B-A4B (MoE)</strong> — Google's MoE flagship. Excellent instruction-following and low memory footprint.</li>
     </ul>
     <div class="callout">
-      <strong>You need less model than you think.</strong> My most demanding account — scrape an article, then write a caption, several segment texts, an image prompt per segment, a motion prompt and a music prompt — runs on a <strong>12B at Q5</strong>, not on the 35B. Once you constrain the output shape properly, parameter count stops being the bottleneck. That is good news for your VRAM budget.
+      <strong>You need less model than you think.</strong> My most demanding account — scrape an article, then write a caption, several segment texts, an image prompt per segment, a motion prompt and a music prompt — runs on a <strong>12B in a 4-bit build</strong>, not on the 35B. Once you constrain the output shape properly, parameter count stops being the bottleneck. That is good news for your VRAM budget.
     </div>
 
     <h3>3. ComfyUI — Images & Video With Full Control</h3>
