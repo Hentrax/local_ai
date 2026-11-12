@@ -371,14 +371,9 @@
     <p>Maîtriser ses environnements Python, c'est maîtriser sa machine. Conda permet d'isoler chaque projet avec ses dépendances sans conflits. Incontournable dès qu'on fait tourner plusieurs outils.</p>
 
     <h3>2. Ollama — LLM en local, sans friction</h3>
-    <p>L'outil le plus fluide pour déployer et interagir avec des modèles de langage en local. Une commande suffit pour télécharger et lancer un modèle.</p>
-    <div class="callout">
-      <strong>Pourquoi les modèles MoE ?</strong> Les architectures Mixture-of-Experts n'activent qu'une fraction des paramètres par token — qualité proche du flagship à une fraction du coût VRAM.
-    </div>
+    <p>La façon la plus simple d'essayer des modèles de langage en local : une commande suffit pour télécharger et lancer un modèle. En production, je fais tourner les mêmes modèles avec llama.cpp (section 4), pour un contrôle plus fin.</p>
     <ul class="feature-list">
-      <li><strong>Gemma 4 12B (QAT)</strong> — Le 12B de Google dans une version entraînée pour supporter la quantification 4 bits. C'est lui qui fait tourner tous mes comptes aujourd'hui : il tient sur une carte de 12 Go avec un long contexte.</li>
-      <li><strong>Qwen3.6-35B-A3B (MoE + MTP)</strong> — Excellent en raisonnement, code et multilinguisme, quand le contexte reste assez court pour que tout le modèle tienne en VRAM. Tourne sur 16 Go.</li>
-      <li><strong>Gemma 4 26B-A4B (MoE)</strong> — Le MoE flagship de Google. Suivi d'instructions excellent et faible empreinte mémoire.</li>
+      <li><strong>Gemma 4 12B (QAT)</strong> — Le 12B de Google dans une version entraînée pour supporter la quantification 4 bits. C'est lui qui fait tourner tous mes comptes aujourd'hui : il tient sur une carte de 12 Go avec un long contexte.</li>
     </ul>
     <div class="callout">
       <strong>Il vous faut un modèle plus petit que vous ne le croyez.</strong> Mon compte le plus exigeant — scraper un article, puis écrire une légende, plusieurs textes de segments, un prompt image par segment, un prompt de mouvement et un prompt musique — tourne sur un <strong>12B en 4 bits</strong>, pas sur le 35B. Dès que la forme de la sortie est correctement contrainte, le nombre de paramètres cesse d'être le facteur limitant. Bonne nouvelle pour votre budget VRAM.
@@ -389,14 +384,13 @@
     <p><strong>Images :</strong></p>
     <ul class="feature-list">
       <li><strong>Krea 2 Turbo</strong> — Génération rapide et stylisée avec une riche bibliothèque de styles artistiques intégrés. Une esthétique distinctive dès l'installation, sans chercher de LoRA. Mon choix par défaut actuellement.</li>
-      <li><strong>FLUX.2 Klein 9B</strong> — L'état de l'art actuel en génération d'images open source. Meilleure fidélité aux prompts et photoréalisme disponibles en local.</li>
-      <li><strong>Z Image Turbo</strong> — Génération ultra-rapide (quelques secondes) sans sacrifier la qualité. Idéal pour itérer vite.</li>
+      <li><strong>MOSS-Image</strong> — Mon choix quand une image doit ressembler à une vraie photo : il garde le photoréalisme sur des décors impossibles là où d'autres modèles glissent vers l'animé ou la 3D, et donne des visages plus variés.</li>
+      <li><strong>Z Image Turbo</strong> — Génération ultra-rapide (quelques secondes) sans sacrifier la qualité — et les meilleures images de chats que j'obtienne.</li>
     </ul>
     <p><strong>Vidéo :</strong></p>
     <ul class="feature-list">
       <li><strong>MiniMax H3</strong> — Ma référence pour l'animation, et le plus gros bond que j'aie vu dans cette catégorie. <strong>Des clips de 15 secondes avec une piste audio synchronisée générée dans la même passe</strong>.</li>
-      <li><strong>Wan 2.2</strong> — Toujours excellent pour le mouvement pur et silencieux : qualité de mouvement remarquable et cohérence temporelle, dans les 5 secondes sur lesquelles il a été entraîné. Au-delà, il génère deux fenêtres qui ne se raccordent pas.</li>
-      <li><strong>LTX-2</strong> — Ce que j'utilisais avant MiniMax H3 : 10 secondes, avec l'audio dans la même passe lui aussi. Reste un intermédiaire raisonnable, mais je devais le régénérer bien plus souvent.</li>
+      <li><strong>Wan 2.2</strong> — Toujours excellent pour le mouvement pur et silencieux : qualité de mouvement remarquable et cohérence temporelle, dans les 5 secondes sur lesquelles il a été entraîné. Au-delà, il génère deux fenêtres qui ne se raccordent pas.</li>
     </ul>
     <div class="callout">
       <strong>Comment je les utilise vraiment :</strong> MiniMax H3 par défaut — je conserve les 15 secondes et son audio natif, et j'ajoute la musique de fond en dessous. Avec Pika H3 Flex — une distillation en six pas publiée comme adaptateur —, c'est environ 9 minutes de GPU par clip sur ma 4070, et ces travaux tournent de jour ; la passe non accélérée (~19 minutes) reste pour la rare génération qui en a besoin. Quand il me faut du volume plutôt que du soin, je bascule sur Wan 2.2 (~3 minutes par clip) ; ce clip est court et muet, alors je le passe en boucle ping-pong et la musique générée devient la seule bande-son.

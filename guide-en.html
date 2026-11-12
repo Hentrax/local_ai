@@ -521,14 +521,9 @@
     <p>Mastering your Python environments means mastering your machine. Conda lets you isolate each project with its own dependencies, no conflicts. Essential as soon as you're running multiple tools.</p>
 
     <h3>2. Ollama — Local LLMs Without Friction</h3>
-    <p>The smoothest tool for deploying and interacting with language models locally. One command to download and launch any model.</p>
-    <div class="callout">
-      <strong>Why MoE models?</strong> Mixture-of-Experts architectures activate only a fraction of parameters per token — you get near-flagship quality at a fraction of the VRAM cost.
-    </div>
+    <p>The smoothest way to try language models locally: one command to download and launch a model. In production I run the same models through llama.cpp (section 4), for finer control.</p>
     <ul class="feature-list">
-      <li><strong>Gemma 4 12B (QAT)</strong> — Google's 12B in a build trained to survive 4-bit quantization. What every one of my accounts runs on today: it fits a 12 GB card with a long context.</li>
-      <li><strong>Qwen3.6-35B-A3B (MoE + MTP)</strong> — Outstanding reasoning, coding, and multilingual support, when the context stays short enough for the whole model to fit in VRAM. Runs on 16 GB.</li>
-      <li><strong>Gemma 4 26B-A4B (MoE)</strong> — Google's MoE flagship. Excellent instruction-following and low memory footprint.</li>
+      <li><strong>Gemma 4 12B (QAT)</strong> — Google's 12B in a build trained to survive 4-bit quantization. What every one of my accounts runs on today: it fits a 12 GB card with a long context.</li>
     </ul>
     <div class="callout">
       <strong>You need less model than you think.</strong> My most demanding account — scrape an article, then write a caption, several segment texts, an image prompt per segment, a motion prompt and a music prompt — runs on a <strong>12B in a 4-bit build</strong>, not on the 35B. Once you constrain the output shape properly, parameter count stops being the bottleneck. That is good news for your VRAM budget.
@@ -539,14 +534,13 @@
     <p><strong>Images:</strong></p>
     <ul class="feature-list">
       <li><strong>Krea 2 Turbo</strong> — Fast, stylized generation with a rich library of built-in art styles. A distinct aesthetic out of the box, no LoRA hunting required. My current default.</li>
-      <li><strong>FLUX.2 Klein 9B</strong> — Current state of the art for open-source image generation. Best prompt adherence and photorealism available locally.</li>
-      <li><strong>Z Image Turbo</strong> — Ultra-fast generation (seconds) without sacrificing quality. Ideal for rapid iteration.</li>
+      <li><strong>MOSS-Image</strong> — My pick when an image must look like a real photo: it holds photorealism on impossible sets where other models drift to anime or CG, and gives more varied faces.</li>
+      <li><strong>Z Image Turbo</strong> — Ultra-fast generation (seconds) without sacrificing quality — and the best cat pictures I get.</li>
     </ul>
     <p><strong>Video:</strong></p>
     <ul class="feature-list">
       <li><strong>MiniMax H3</strong> — My go-to for animation, and the biggest jump I've seen in this category. <strong>15-second clips with a synchronized audio track generated in the same pass</strong>.</li>
-      <li><strong>Wan 2.2</strong> — Still excellent for pure, silent motion: remarkable movement quality and temporal consistency, within the 5 seconds it was trained on. Ask for longer and you get two windows that don't agree at the seam.</li>
-      <li><strong>LTX-2</strong> — What I used before MiniMax H3: 10 seconds, also with audio in the same pass. Still a sensible middle ground, but I had to regenerate it far more often.</li>
+      <li><strong>Wan 2.2</strong> — Still excellent for pure, silent motion: remarkable movement quality and temporal consistency, within the 5 seconds it was trained on. Ask for longer and you get two windows that don't agree at the seam.</li>
     </ul>
     <div class="callout">
       <strong>How I actually use them:</strong> MiniMax H3 by default — I keep the full 15 seconds and its native audio, and add background music underneath it. With Pika H3 Flex — a six-step distillation released as an adapter — that's roughly 9 minutes of GPU per clip on my 4070, and those jobs run during the day; the unaccelerated pass (~19 minutes) stays for the rare generation that needs it. When I need volume rather than polish I switch to Wan 2.2 (~3 minutes a clip); that clip is short and silent, so I mirror it into a ping-pong loop and the generated music becomes the only soundtrack.
