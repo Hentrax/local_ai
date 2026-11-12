@@ -373,7 +373,7 @@
     <h3>2. llama.cpp — LLM en local</h3>
     <p>Le serveur de LLM que je fais tourner en production : il charge un modèle GGUF sur le GPU, le sert en HTTP, et transforme un schéma JSON en une grammaire que le modèle est obligé de suivre (voir plus bas).</p>
     <ul class="feature-list">
-      <li><strong>Gemma 4 12B (QAT)</strong> — Le 12B de Google dans une version entraînée pour supporter la quantification 4 bits. C'est lui qui fait tourner tous mes comptes aujourd'hui : il tient sur une carte de 12 Go avec un long contexte.</li>
+      <li><strong>Gemma 4 12B (QAT)</strong> — Le 12B de Google dans une version entraînée pour supporter la quantification 4 bits. C'est lui qui fait tourner tous mes comptes aujourd'hui : il tient sur une carte de 12 Go avec un long contexte. Sur ma RTX 4070, il écrit à <strong>~93 tokens par seconde</strong>, grâce à un petit modèle « brouillon MTP » qui propose des tokens d'avance (décodage spéculatif) — une publication entière, raisonnement compris, en une quarantaine de secondes.</li>
     </ul>
     <div class="callout">
       <strong>Il vous faut un modèle plus petit que vous ne le croyez.</strong> Mon compte le plus exigeant — scraper un article, puis écrire une légende, plusieurs textes de segments, un prompt image par segment, un prompt de mouvement et un prompt musique — tourne sur un <strong>12B en 4 bits</strong>, pas sur le 35B. Dès que la forme de la sortie est correctement contrainte, le nombre de paramètres cesse d'être le facteur limitant. Bonne nouvelle pour votre budget VRAM.
@@ -387,6 +387,7 @@
       <li><strong>MOSS-Image</strong> — Mon choix quand une image doit ressembler à une vraie photo : il garde le photoréalisme sur des décors impossibles là où d'autres modèles glissent vers l'animé ou la 3D, et donne des visages plus variés.</li>
       <li><strong>Z Image Turbo</strong> — Génération ultra-rapide (quelques secondes) sans sacrifier la qualité — et les meilleures images de chats que j'obtienne.</li>
     </ul>
+    <p style="font-size:.88rem;color:var(--muted)">Sur ma RTX 4070, le mois dernier : ~32 s par image avec Krea 2 Turbo, ~11 s avec MOSS-Image, ~16 s avec Z Image Turbo (médianes).</p>
     <p><strong>Vidéo :</strong></p>
     <ul class="feature-list">
       <li><strong>MiniMax H3</strong> — Ma référence pour l'animation, et le plus gros bond que j'aie vu dans cette catégorie. <strong>Des clips de 15 secondes avec une piste audio synchronisée générée dans la même passe</strong>.</li>

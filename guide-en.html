@@ -523,7 +523,7 @@
     <h3>2. llama.cpp — Local LLMs</h3>
     <p>The LLM server I run in production: it loads a GGUF model on the GPU, serves it over HTTP, and turns a JSON schema into a grammar the model has to follow (more on that below).</p>
     <ul class="feature-list">
-      <li><strong>Gemma 4 12B (QAT)</strong> — Google's 12B in a build trained to survive 4-bit quantization. What every one of my accounts runs on today: it fits a 12 GB card with a long context.</li>
+      <li><strong>Gemma 4 12B (QAT)</strong> — Google's 12B in a build trained to survive 4-bit quantization. What every one of my accounts runs on today: it fits a 12 GB card with a long context. On my RTX 4070 it writes at <strong>~93 tokens per second</strong>, thanks to a small "MTP draft" model that proposes tokens ahead (speculative decoding) — a whole post, reasoning included, in about 40 seconds.</li>
     </ul>
     <div class="callout">
       <strong>You need less model than you think.</strong> My most demanding account — scrape an article, then write a caption, several segment texts, an image prompt per segment, a motion prompt and a music prompt — runs on a <strong>12B in a 4-bit build</strong>, not on the 35B. Once you constrain the output shape properly, parameter count stops being the bottleneck. That is good news for your VRAM budget.
@@ -537,6 +537,7 @@
       <li><strong>MOSS-Image</strong> — My pick when an image must look like a real photo: it holds photorealism on impossible sets where other models drift to anime or CG, and gives more varied faces.</li>
       <li><strong>Z Image Turbo</strong> — Ultra-fast generation (seconds) without sacrificing quality — and the best cat pictures I get.</li>
     </ul>
+    <p style="font-size:.88rem;color:var(--muted)">On my RTX 4070, last month: ~32 s an image with Krea 2 Turbo, ~11 s with MOSS-Image, ~16 s with Z Image Turbo (medians).</p>
     <p><strong>Video:</strong></p>
     <ul class="feature-list">
       <li><strong>MiniMax H3</strong> — My go-to for animation, and the biggest jump I've seen in this category. <strong>15-second clips with a synchronized audio track generated in the same pass</strong>.</li>
