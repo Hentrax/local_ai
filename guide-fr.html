@@ -370,8 +370,8 @@
     <h3>1. Python + Conda — La base</h3>
     <p>Maîtriser ses environnements Python, c'est maîtriser sa machine. Conda permet d'isoler chaque projet avec ses dépendances sans conflits. Incontournable dès qu'on fait tourner plusieurs outils.</p>
 
-    <h3>2. Ollama — LLM en local, sans friction</h3>
-    <p>La façon la plus simple d'essayer des modèles de langage en local : une commande suffit pour télécharger et lancer un modèle. En production, je fais tourner les mêmes modèles avec llama.cpp (section 4), pour un contrôle plus fin.</p>
+    <h3>2. llama.cpp — LLM en local</h3>
+    <p>Le serveur de LLM que je fais tourner en production : il charge un modèle GGUF sur le GPU, le sert en HTTP, et transforme un schéma JSON en une grammaire que le modèle est obligé de suivre (voir plus bas).</p>
     <ul class="feature-list">
       <li><strong>Gemma 4 12B (QAT)</strong> — Le 12B de Google dans une version entraînée pour supporter la quantification 4 bits. C'est lui qui fait tourner tous mes comptes aujourd'hui : il tient sur une carte de 12 Go avec un long contexte.</li>
     </ul>
@@ -399,10 +399,7 @@
       <strong>Une vidéo qui suit un trajet :</strong> un clip peut partir d'une seule image, d'une image de début et d'une image de fin, ou de l'image exacte sur laquelle le clip précédent s'est arrêté. Cette dernière option enchaîne plusieurs clips en un seul mouvement continu, sans raccord visible — même stack, un seul choix de structure.
     </div>
 
-    <h3>4. llama.cpp — Pour aller plus loin</h3>
-    <p>Quand Ollama ne suffit plus, llama.cpp offre un contrôle granulaire sur les paramètres de génération, le threading et l'utilisation GPU/CPU. Indispensable pour l'intégration dans des workflows automatisés.</p>
-
-    <h3>5. Stable Audio — Musique générée en local</h3>
+    <h3>4. Stable Audio — Musique générée en local</h3>
     <p>Générez une musique d'ambiance directement depuis un prompt texte, 100 % en local. Stable Audio 3 produit de l'audio stéréo haute qualité jusqu'à plusieurs minutes — idéal pour les fonds sonores vidéo et les reels.</p>
   </section>
 
@@ -427,7 +424,7 @@
     <p>Le tout tourne sans intervention humaine, 24h/24.</p>
 
     <div class="callout">
-      <strong>Ce qui rend l'ensemble fiable : la sortie structurée.</strong> On donne au modèle local un schéma JSON, et llama.cpp (ou Ollama) le compile en une grammaire que l'échantillonneur est <em>obligé</em> de suivre. Le modèle ne peut alors physiquement pas répondre en prose, entourer son JSON de markdown, inventer un champ ou en oublier un. C'est toute la différence entre une démo qu'on surveille et un pipeline qu'on laisse tourner — et c'est gratuit, en local.
+      <strong>Ce qui rend l'ensemble fiable : la sortie structurée.</strong> On donne au modèle local un schéma JSON, et llama.cpp le compile en une grammaire que l'échantillonneur est <em>obligé</em> de suivre. Le modèle ne peut alors physiquement pas répondre en prose, entourer son JSON de markdown, inventer un champ ou en oublier un. C'est toute la différence entre une démo qu'on surveille et un pipeline qu'on laisse tourner — et c'est gratuit, en local.
     </div>
 
     <div class="callout">
@@ -449,7 +446,7 @@
     <div class="section-title"><span class="icon">🚀</span> Par où commencer ?</div>
 
     <h3>La voie rapide — Pinokio</h3>
-    <p><a href="https://pinokio.computer/" style="color:var(--accent);">Pinokio</a> installe les outils IA en un clic. Idéal pour tester ComfyUI ou Ollama sans toucher à une ligne de commande.</p>
+    <p><a href="https://pinokio.computer/" style="color:var(--accent);">Pinokio</a> installe les outils IA en un clic. Idéal pour tester ComfyUI sans toucher à une ligne de commande.</p>
     <ul class="feature-list">
       <li><strong>ComfyUI</strong> — génération d'images</li>
       <li><strong>wan2gp</strong> — optimise la VRAM pour les générations vidéo Wan 2.2, parfait pour débuter</li>
@@ -461,9 +458,8 @@
       <li>Drivers Nvidia à jour</li>
       <li>CUDA Toolkit (version compatible avec votre PyTorch cible)</li>
       <li>Miniconda</li>
-      <li>Ollama (test rapide pour valider le setup GPU)</li>
       <li>ComfyUI</li>
-      <li>llama.cpp (optionnel, pour les workflows avancés)</li>
+      <li>llama.cpp (le serveur de LLM)</li>
     </ol>
   </section>
 

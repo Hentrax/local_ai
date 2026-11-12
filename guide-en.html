@@ -520,8 +520,8 @@
     <h3>1. Python + Conda — The Foundation</h3>
     <p>Mastering your Python environments means mastering your machine. Conda lets you isolate each project with its own dependencies, no conflicts. Essential as soon as you're running multiple tools.</p>
 
-    <h3>2. Ollama — Local LLMs Without Friction</h3>
-    <p>The smoothest way to try language models locally: one command to download and launch a model. In production I run the same models through llama.cpp (section 4), for finer control.</p>
+    <h3>2. llama.cpp — Local LLMs</h3>
+    <p>The LLM server I run in production: it loads a GGUF model on the GPU, serves it over HTTP, and turns a JSON schema into a grammar the model has to follow (more on that below).</p>
     <ul class="feature-list">
       <li><strong>Gemma 4 12B (QAT)</strong> — Google's 12B in a build trained to survive 4-bit quantization. What every one of my accounts runs on today: it fits a 12 GB card with a long context.</li>
     </ul>
@@ -549,10 +549,7 @@
       <strong>Video that follows a path:</strong> a clip can start from one image, from a start and an end frame, or from the exact frame the previous clip ended on. That last option chains several clips into one continuous move, with no visible seam at the joins — same stack, one structure choice.
     </div>
 
-    <h3>4. llama.cpp — Going Further</h3>
-    <p>When Ollama isn't enough, llama.cpp gives granular control over generation parameters, threading, and GPU/CPU usage. Essential for integration into automated workflows.</p>
-
-    <h3>5. Stable Audio — Local Music Generation</h3>
+    <h3>4. Stable Audio — Local Music Generation</h3>
     <p>Generate ambient music directly from a text prompt, fully locally. Stable Audio 3 produces high-quality stereo audio up to several minutes long — ideal for video backgrounds and reels.</p>
   </section>
 
@@ -577,7 +574,7 @@
     <p>The whole pipeline runs without human intervention, 24/7.</p>
 
     <div class="callout">
-      <strong>What makes it reliable: structured output.</strong> You hand the local model a JSON schema, and llama.cpp (or Ollama) compiles it into a grammar the sampler has to follow. The model <em>physically cannot</em> answer with prose, wrap the JSON in markdown, invent a field, or drop one. That is the difference between a demo you babysit and a pipeline you leave running — and it's free, locally.
+      <strong>What makes it reliable: structured output.</strong> You hand the local model a JSON schema, and llama.cpp compiles it into a grammar the sampler has to follow. The model <em>physically cannot</em> answer with prose, wrap the JSON in markdown, invent a field, or drop one. That is the difference between a demo you babysit and a pipeline you leave running — and it's free, locally.
     </div>
 
     <div class="callout">
@@ -599,7 +596,7 @@
     <div class="section-title"><span class="icon">🚀</span> Where to Start</div>
 
     <h3>The Fast Lane — Pinokio</h3>
-    <p><a href="https://pinokio.computer/" style="color:var(--accent);">Pinokio</a> installs AI tools in one click. Perfect for testing ComfyUI or Ollama without touching the command line.</p>
+    <p><a href="https://pinokio.computer/" style="color:var(--accent);">Pinokio</a> installs AI tools in one click. Perfect for testing ComfyUI without touching the command line.</p>
     <ul class="feature-list">
       <li><strong>ComfyUI</strong> — image generation</li>
       <li><strong>wan2gp</strong> — optimizes VRAM for Wan 2.2 video generation, perfect first experience</li>
@@ -611,9 +608,8 @@
       <li>Latest Nvidia drivers</li>
       <li>CUDA Toolkit (compatible with your target PyTorch version)</li>
       <li>Miniconda</li>
-      <li>Ollama (quick test to validate GPU setup)</li>
       <li>ComfyUI</li>
-      <li>llama.cpp (optional, for advanced workflows)</li>
+      <li>llama.cpp (the LLM server)</li>
     </ol>
   </section>
 
